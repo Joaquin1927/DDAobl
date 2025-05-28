@@ -8,6 +8,8 @@ package Logica;
  *
  * @author Usuario
  */
-public class Cliente {
-    
+public class Cliente extends Usuario{
+    public Cliente(String nombre, String nombreCompleto, String contrasenia) {
+        super(nombre, nombreCompleto, contrasenia);
+    }
 }

@@ -11,11 +11,11 @@ package Logica;
 public abstract class Usuario {
     private String nombre;
     private String nombreCompleto;
-    private String contrenia;
+    private String contrasenia;
     public Usuario (String nombre, String nombreCompleto, String contrasenia) {
     this.nombre = nombre;
     this.nombreCompleto = nombreCompleto;
-    this.contrenia = contrasenia;
+    this.contrasenia = contrasenia;
     }
     
 }

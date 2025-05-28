@@ -8,16 +8,14 @@ package Logica;
  *
  * @author Usuario
  */
-public class Gestor {
-    private String nombreUsuario;
-    private String contrasenia;
-    private String nombreCompleto;
+public class Gestor extends Usuario{
     private Unidad unidad;
     
-    public Gestor (String nombreUsuario, String contrasenia, String nombreCompleto, Unidad unidad) {
-    this.nombreUsuario = nombreUsuario;
-    this.contrasenia = contrasenia;
-    this.nombreCompleto = nombreCompleto;
-    this.unidad = unidad;
+    public Gestor (String nombre, String nombreCompleto, String contrasenia, Unidad unidad) {
+        super(nombre, nombreCompleto, contrasenia);
+        this.unidad = unidad;
+    }
+     public Unidad getUnidad() {
+        return unidad;
     }
 }
