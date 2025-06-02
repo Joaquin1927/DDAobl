@@ -12,17 +12,20 @@ import java.util.List;
  */
 public class Fachada {
     private SistemaAcceso sistemaAcceso;
+    private static Fachada instancia = new Fachada();
+    private SistemaDispositivo sistemaDispositivo;
 
-    public Fachada(List<Usuario> usuarios) {
-        sistemaAcceso = new SistemaAcceso(usuarios);
+    
+
+    
+    public static Fachada getInstancia(){
+    return getInstancia();
     }
 
-    public void loginCliente(String nombre, String contrasenia) {
-        sistemaAcceso.loginCliente(nombre, contrasenia);
+    public SistemaAcceso getSistemaAcceso(){
+    return sistemaAcceso;
     }
-    public void loginGestor(String nombre, String contrasenia) {
-        sistemaAcceso.loginGestor(nombre, contrasenia);
-    }
+
 
     public void logout() {
         sistemaAcceso.logout();
@@ -31,6 +34,10 @@ public class Fachada {
     public Usuario getUsuarioActual() {
         Sesion s = sistemaAcceso.getSesionActual();
         return s != null ? s.getUsuario() : null;
+    }
+
+    public SistemaDispositivo getSistemaDispositivo() {
+        return sistemaDispositivo;
     }
 
 }

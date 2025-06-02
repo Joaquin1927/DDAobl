@@ -10,9 +10,16 @@ package Logica;
  */
 public class Dispositivo {
     private int codigo;
+    private Cliente cliente;
     
     public Dispositivo (int codigo) {
     this.codigo = codigo;
+    }
+    public int getCodigo(){
+    return this.codigo;
+    }
+    public void setCliente (Cliente cliente) {
+    this.cliente = cliente;
     }
     
 }

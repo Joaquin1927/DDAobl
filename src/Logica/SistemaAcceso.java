@@ -13,30 +13,39 @@ import java.util.List;
 public class SistemaAcceso {
     private List<Usuario> usuarios; 
     private Sesion sesionActual;
+    private List<Cliente> clientes;
+    private SistemaDispositivo SistemaDispositivo;
+    private Fachada fachada;
 
-    public SistemaAcceso(List<Usuario> usuarios) {
-        this.usuarios = usuarios;
+    public SistemaAcceso(List<Cliente> clientes) {
+        this.clientes = clientes;
     }
 
-    public Sesion loginCliente(String nombre, String contrasenia) {
-        for (Usuario u : usuarios) {
-            if (u instanceof Cliente && u.getNombre().equals(nombre) && u.verificarContrasenia(contrasenia)) {
-                sesionActual = new Sesion(u);
-                return sesionActual;
+    public Cliente login(String nombre, String contrasenia) {
+        Cliente aux = new Cliente(nombre, "", contrasenia);
+        for (Cliente c : clientes) {
+            if (c.equals(aux)) {
+                //sesionActual = new Sesion(u);
+                //return sesionActual;
+                System.out.println(c.getNombreCompleto());
+                return c; 
             }
         }
-        throw new RuntimeException("Credenciales incorrectas o usuario no es cliente.");
+        System.out.println("Credenciales incorrectas o usuario no es cliente.");
+        return null;
+        //agregar exception si es null
+        // TODO
     }
 
-    public Sesion loginGestor(String nombre, String contrasenia) {
-        for (Usuario u : usuarios) {
-            if (u instanceof Gestor && u.getNombre().equals(nombre) && u.verificarContrasenia(contrasenia)) {
-                sesionActual = new Sesion(u);
-                return sesionActual;
-            }
-        }
-        throw new RuntimeException("Credenciales incorrectas o usuario no es gestor.");
-    }
+   // public Sesion loginGestor(String nombre, String contrasenia) {
+   //     for (Usuario u : usuarios) {
+    //        if (u instanceof Gestor && u.getNombre().equals(nombre) && u.verificarContrasenia(contrasenia)) {
+    //            sesionActual = new Sesion(u);
+     //           return sesionActual;
+     //       }
+     //   }
+      //  throw new RuntimeException("Credenciales incorrectas o usuario no es gestor.");
+  //  }
 
     public void logout() {
         sesionActual = null;
