@@ -6,6 +6,7 @@ package vistasCliente;
 
 import Logica.Cliente;
 import Logica.Fachada;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -211,9 +212,9 @@ public class vistaDispositivo extends javax.swing.JFrame {
         try{
         Cliente cliente = fachada.getSistemaAcceso().login(nombre,password);
         fachada.getSistemaDispositivo().asignarDispositivo(idDispositivo, cliente);
-        
+        JOptionPane.showMessageDialog(this,"Usuario ingresado con éxito", getTitle(),JOptionPane.OK_OPTION);
         }catch(Exception ex){
-        throw ex;
+        JOptionPane.showMessageDialog(this,"Login incorrecto", getTitle(),JOptionPane.ERROR_MESSAGE);
         }
     }
 }
